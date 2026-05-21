@@ -1,0 +1,15 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: kite-dashboard
+  namespace: kube-system
+spec:
+  parentRefs:
+    - name: main-gateway
+      namespace: default
+  hostnames:
+    - "dashboard.pma.local"
+  rules:
+    - backendRefs:
+        - name: kite
+          port: 8080
