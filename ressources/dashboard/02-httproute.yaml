@@ -1,15 +1,15 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: phpmyadmin
-  namespace: default
+  name: kite-dashboard
+  namespace: kube-system
 spec:
   parentRefs:
     - name: main-gateway
-      namespace: default
+      namespace: projet-pma
   hostnames:
-    - "pma.local"
+    - "dashboard.pma.local"
   rules:
     - backendRefs:
-        - name: phpmyadmin
-          port: 80
+        - name: kite
+          port: 8080

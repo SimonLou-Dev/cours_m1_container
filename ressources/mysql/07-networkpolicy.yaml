@@ -2,6 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: mysql-allow-phpmyadmin
+  namespace: projet-pma
 spec:
   podSelector:
     matchLabels:
